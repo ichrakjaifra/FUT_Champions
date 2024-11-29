@@ -127,6 +127,7 @@ addplayer.addEventListener("click", function(e) {
 
       </div>
      `
+     cardsContainer.appendChild(div);
     }else{
      div.innerHTML=`
    <div class="cardeNonGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
