@@ -1,12 +1,60 @@
 let PlayersList = document.getElementById("playersList");
-let playersdatas = new XMLHttpRequest();
+let dataplayers = new XMLHttpRequest();
     
-playersdatas.open("GET","https://brofortech.com/ichrak.json",true);
-playersdatas.send();
-playersdatas.onreadystatechange = function(){
-    if(playersdatas.readyState === 4 && playersdatas.status === 200){
-        let ourdata = JSON.parse(playersdatas.response);
-        let data = ourdata.players;
+dataplayers.open("GET","https://brofortech.com/ichrak.json",true);
+dataplayers.send();
+dataplayers.onreadystatechange = function(){
+    if(dataplayers.readyState === 4 && dataplayers.status === 200){
+        let d = JSON.parse(dataplayers.response);
+        let data = d.players;
+        
+        const name = document.getElementById("name").value;
+  const photo = document.getElementById("photo").value;
+  const position = document.getElementById('position').value;
+  const nationality = document.getElementById("nationality").value;
+  const flag = document.getElementById("flag").value;
+  const club = document.getElementById("club").value;
+  const logo = document.getElementById("logo").value;
+  const rating = document.getElementById("rating").value;
+  const pace = document.getElementById("pace").value;
+  const shooting = document.getElementById("shooting").value;
+  const passing = document.getElementById("passing").value;
+  const dribbling = document.getElementById("dribbling").value;
+  const defending = document.getElementById("defending").value;
+  const physical = document.getElementById("physical").value;
+  const diving = document.getElementById("diving").value;
+  const handling = document.getElementById("diving").handling;
+  const kicking = document.getElementById("kicking").value;
+  const reflexes = document.getElementById("reflexes").value;
+  const speed = document.getElementById("speed").value;
+  const positioning = document.getElementById("positioning").value;
+
+  let obj = {
+    name:name,
+     photo : photo,
+     position : position,
+     flag : flag,
+     nationality : nationality,
+     logo : logo,
+     club : club,
+     rating : rating,
+     pace : pace,
+     shooting : shooting,
+     passing : passing,
+     dribbling : dribbling,
+     defending : defending,
+     physical : physical,
+      diving : diving,
+   handling : handling,
+   kicking : kicking,
+   reflexes : reflexes,
+   speed : speed,
+   positioning : positioning
+
+     
+  }
+  
+  data.push(obj);
         
         data.forEach(player => {
         let div = document.createElement("div");
@@ -108,5 +156,43 @@ playersdatas.onreadystatechange = function(){
         
     }
     
+    
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

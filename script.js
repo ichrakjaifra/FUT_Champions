@@ -15,7 +15,6 @@ function hideOverlay() {
 }
 
 document.getElementById("add-player").addEventListener("click", showOverlay);
-
 /********************************/
 // Validation js
 // Sélection du formulaire
@@ -167,7 +166,9 @@ function validatePlayerForm(event) {
 
 playerForm.addEventListener("submit", validatePlayerForm);
 
-/***************************/
+
+
+/*************************/
 let positionSelect = document.querySelector('#position');
 let otherForm = document.getElementById('other-stats');
 let GKForm = document.getElementById('gk-stats');
@@ -188,7 +189,7 @@ positionSelect.addEventListener('change', (e) => {
 
 
 const cardsContainer = document.getElementById("cards-container");
-const addplayer = document.getElementById("addplayer");
+ const addplayer = document.getElementById("addplayer");
 const  setPlayerOverlay = document.getElementById("set-player-overlay");
 
 // addplayer.addEventListener('click', function(e){
@@ -198,8 +199,6 @@ const  setPlayerOverlay = document.getElementById("set-player-overlay");
 // Soumettre le formulaire
 addplayer.addEventListener("click", function(e) {
   e.preventDefault();
-
-  // Récupérer les valeurs du formulaire
   const name = document.getElementById("name").value;
   const photo = document.getElementById("photo").value;
   const position = document.getElementById('position').value;
@@ -214,8 +213,6 @@ addplayer.addEventListener("click", function(e) {
   const dribbling = document.getElementById("dribbling").value;
   const defending = document.getElementById("defending").value;
   const physical = document.getElementById("physical").value;
-  console.log(physical);
-
   const diving = document.getElementById("diving").value;
   const handling = document.getElementById("diving").handling;
   const kicking = document.getElementById("kicking").value;
@@ -223,6 +220,33 @@ addplayer.addEventListener("click", function(e) {
   const speed = document.getElementById("speed").value;
   const positioning = document.getElementById("positioning").value;
 
+  let obj = {
+    name:name,
+     photo : photo,
+     position : position,
+     flag : flag,
+     nationality : nationality,
+     logo : logo,
+     club : club,
+     rating : rating,
+     pace : pace,
+     shooting : shooting,
+     passing : passing,
+     dribbling : dribbling,
+     defending : defending,
+     physical : physical,
+      diving : diving,
+   handling : handling,
+   kicking : kicking,
+   reflexes : reflexes,
+   speed : speed,
+   positioning : positioning
+
+     
+  }
+  
+  data.push(obj);
+  console.log(data);
 
 
   // Créer une nouvelle carte
@@ -276,7 +300,9 @@ addplayer.addEventListener("click", function(e) {
       </div>
      `
      cardsContainer.appendChild(div);
+     
     }else{
+      
      div.innerHTML=`
    <div class="cardeNonGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
        <div class="flex flex-col">
