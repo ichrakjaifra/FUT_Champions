@@ -62,7 +62,7 @@ dataplayers.onreadystatechange = function(){
         if(player.position=="GK")
           {
            div.innerHTML=`
-         <div class="cardeGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')];">
+         <div class="cardeGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
              <div class="flex flex-col ">
                  <div class="flex">
                  <div class="flex flex-col mr-[-8px] text-[#362f16] items-center">
@@ -106,6 +106,7 @@ dataplayers.onreadystatechange = function(){
 
             </div>
            `
+           PlayersList.appendChild(div)
           }else{
            div.innerHTML=`
          <div class="cardeNonGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
