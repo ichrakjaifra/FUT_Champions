@@ -14,6 +14,11 @@ function hideOverlay() {
   document.getElementById("playerForm").reset();
 }
 
+function hideOverlayedit(){
+  document.getElementById("editAddplayermodal").classList.add("hidden");
+  document.getElementById("editmodalform").reset();
+}
+
 document.getElementById("add-player").addEventListener("click", showOverlay);
 /********************************/
 // Validation js

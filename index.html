@@ -5,16 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <!-- <header>
     <div class=" bg-[#407466] px-4 md:py-2 md:px-24">
       <img src="img/Capture_d_écran_2024-11-25_124931-removebg-preview.png" class="h-[100px] w-[100] ml-20">
     </div>
   </header>
   <div class="mt-4  flex justify-end px-4">
   <button id="add-player" class="bg-[#EADE6E] text-white border-2 rounded-lg py-2 px-4 hover:bg-[EADE6E]">Add player</button>
-  </div>
+  </div> -->
+
+  <header class=" px-4 flex items-center justify-between bg-[#407466]">
+    <img src="img/Capture_d_écran_2024-11-25_124931-removebg-preview.png" class="h-[100px] w-[100] ml-20">
+    <nav class="flex-1">
+      <ul class="flex justify-center space-x-8">
+          <li><a href="#" class="text-[#EADE6E] hover:underline">Home</a></li>
+          <li><a href="#" class="text-[#EADE6E] hover:underline">About</a></li>
+          <li><a href="#" class="text-[#EADE6E] hover:underline">Services</a></li>
+          <li><a href="#" class="text-[#EADE6E] hover:underline">Contact</a></li>
+      </ul>
+  </nav>
+    <button id="add-player" class="bg-[#EADE6E] text-white border-2 rounded-lg py-2 px-4 hover:bg-[#EADE6E]">Add player</button>
+</header>
 
   <div class="mt-4 bg-contain lg:bg-cover bg-no-repeat w-full h-[100vh] lg:w-[80vw] lg:h-[140vh] mx-auto px-12 py-6" style="background-image: url('img/terrain.png');">
     <div class="grid grid-cols-3 gap-4">
@@ -83,19 +97,19 @@
 
 
   <div id="set-player-overlay" class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
-    <div class="relative max-w-lg w-full p-6 border-2 border-black rounded-lg bg-white overflow-y-scroll max-h-[80vh]">
-      <h1 class="text-xl font-semibold text-center mb-4">Add Player</h1>
+    <div class="relative max-w-lg w-full p-6 border-2 border-black rounded-lg bg-[#407466] overflow-y-scroll max-h-[80vh]">
+      <h1 class="text-xl font-semibold text-center text-[#EADE6E] mb-4">Add Player</h1>
       <form id="playerForm" class="space-y-4" autocomplete="off">
         
-        <label for="name" class="block text-sm font-medium">Name</label>
+        <label for="name" class="block text-sm text-[#EADE6E] font-medium">Name</label>
         <input type="text" name="name" id="name" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
         <small class="text-red-500"></small>
 
-        <label for="photo" class="block text-sm font-medium">Photo URL</label>
+        <label for="photo" class="block text-sm text-[#EADE6E] font-medium">Photo URL</label>
         <input type="url" name="photo" id="photo" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
         <small class="text-red-500"></small>
 
-        <label for="position" class="block text-sm font-medium">Position</label>
+        <label for="position" class="block text-sm text-[#EADE6E] font-medium">Position</label>
         <select name="position" id="position" class="w-full px-3 py-2 bg-gray-100 border rounded-md">
           <option disabled selected hidden>Choose position</option>
           <option value="GK">GK</option>
@@ -111,23 +125,23 @@
           <option value="RW">RW</option>
         </select>
 
-        <label for="nationality" class="block text-sm font-medium">Nationality</label>
+        <label for="nationality" class="block text-sm text-[#EADE6E] font-medium">Nationality</label>
         <input type="text" name="nationality" id="nationality" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
         <small class="text-red-500"></small>
 
-        <label for="flag" class="block text-sm font-medium">Flag URL</label>
+        <label for="flag" class="block text-sm text-[#EADE6E] font-medium">Flag URL</label>
         <input type="url" name="flag" id="flag" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
         <small class="text-red-500"></small>
 
-        <label for="club" class="block text-sm font-medium">Club</label>
+        <label for="club" class="block text-sm text-[#EADE6E] font-medium">Club</label>
         <input type="text" name="club" id="club" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
         <small class="text-red-500"></small>
 
-        <label for="logo" class="block text-sm font-medium">Club Logo URL</label>
+        <label for="logo" class="block text-sm text-[#EADE6E] font-medium">Club Logo URL</label>
         <input type="url" name="logo" id="logo" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
         <small class="text-red-500"></small>
 
-        <label for="rating" class="block text-sm font-medium">Rating</label>
+        <label for="rating" class="block text-sm text-[#EADE6E] font-medium">Rating</label>
         <input type="number" name="rating" id="rating" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
         <small class="text-red-500"></small>
 
@@ -136,32 +150,32 @@
 
         <div id="other-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
           <div>
-              <label for="pace" class="block text-sm font-medium">Pace</label>
+              <label for="pace" class="block text-sm text-[#EADE6E] font-medium">Pace</label>
               <input type="number" name="pace" id="pace" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="shooting" class="block text-sm font-medium">Shooting</label>
+              <label for="shooting" class="block text-sm text-[#EADE6E] font-medium">Shooting</label>
               <input type="number" name="shooting" id="shooting" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="passing" class="block text-sm font-medium">Passing</label>
+              <label for="passing" class="block text-sm text-[#EADE6E] font-medium">Passing</label>
               <input type="number" name="passing" id="passing" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="dribbling" class="block text-sm font-medium">Dribbling</label>
+              <label for="dribbling" class="block text-sm text-[#EADE6E] font-medium">Dribbling</label>
               <input type="number" name="dribbling" id="dribbling" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="defending" class="block text-sm font-medium">defending</label>
+              <label for="defending" class="block text-sm text-[#EADE6E] font-medium">defending</label>
               <input type="number" name="defending" id="defending" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="physical" class="block text-sm font-medium">Physical</label>
+              <label for="physical" class="block text-sm text-[#EADE6E] font-medium">Physical</label>
               <input type="number" name="physical" id="physical" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
@@ -169,88 +183,36 @@
 
       <div id="gk-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
           <div>
-              <label for="diving" class="block text-sm font-medium">Diving</label>
+              <label for="diving" class="block text-sm text-[#EADE6E] font-medium">Diving</label>
               <input type="number" name="diving" id="diving" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="handling" class="block text-sm font-medium">Handling</label>
+              <label for="handling" class="block text-sm text-[#EADE6E] font-medium">Handling</label>
               <input type="number" name="handling" id="handling" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="kicking" class="block text-sm font-medium">Kicking</label>
+              <label for="kicking" class="block text-sm text-[#EADE6E] font-medium">Kicking</label>
               <input type="number" name="kicking" id="kicking" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="reflexes" class="block text-sm font-medium">Reflexes</label>
+              <label for="reflexes" class="block text-sm text-[#EADE6E] font-medium">Reflexes</label>
               <input type="number" name="reflexes" id="reflexes" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="speed" class="block text-sm font-medium">speed</label>
+              <label for="speed" class="block text-sm text-[#EADE6E] font-medium">speed</label>
               <input type="number" name="speed" id="speed" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
           <div>
-              <label for="positioning" class="block text-sm font-medium">Positioning</label>
+              <label for="positioning" class="block text-sm text-[#EADE6E] font-medium">Positioning</label>
               <input type="number" name="positioning" id="positioning" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
               <small class="text-red-500"></small>
           </div>
       </div>
-
-        <!-- <div id="gk-stats" class="hidden">
-          <label for="diving" class="block text-sm font-medium">Diving</label>
-          <input type="number" name="diving" id="diving" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="handling" class="block text-sm font-medium">Handling</label>
-          <input type="number" name="handling" id="handling" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="kicking" class="block text-sm font-medium">Kicking</label>
-          <input type="number" name="kicking" id="kicking" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="reflexes" class="block text-sm font-medium">Reflexes</label>
-          <input type="number" name="reflexes" id="reflexes" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="speed" class="block text-sm font-medium">Speed</label>
-          <input type="number" name="speed" id="speed" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="positioning" class="block text-sm font-medium">Positioning</label>
-          <input type="number" name="positioning" id="positioning" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        </div>
-        
-        <div id="other-stats" class="hidden">
-          <label for="pace" class="block text-sm font-medium">Pace</label>
-          <input type="number" name="pace" id="pace" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="shooting" class="block text-sm font-medium">Shooting</label>
-          <input type="number" name="shooting" id="shooting" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="passing" class="block text-sm font-medium">Passing</label>
-          <input type="number" name="passing" id="passing" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="dribbling" class="block text-sm font-medium">Dribbling</label>
-          <input type="number" name="dribbling" id="dribbling" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="defending" class="block text-sm font-medium">Defending</label>
-          <input type="number" name="defending" id="defending" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        
-          <label for="physical" class="block text-sm font-medium">Physical</label>
-          <input type="number" name="physical" id="physical" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
-          <small class="text-red-500"></small>
-        </div> -->
 
         <div class="text-center mt-4">
           <button type="button" class="px-4 py-2 bg-green-500 text-white rounded-md" id="addplayer">Add Player</button>
@@ -261,30 +223,208 @@
 </div>
 
 
+<!--edit-->
+<div id="editAddplayermodal" class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+  <div class="relative max-w-lg w-full p-6 border-2 border-black rounded-lg bg-white overflow-y-scroll max-h-[80vh]">
+    <h1 class="text-xl font-semibold text-center mb-4">Add Player</h1>
+    <form id="editmodalform" class="space-y-4" autocomplete="off">
+      
+      <label for="editPlayerName" class="block text-sm font-medium">Name</label>
+      <input type="text" name="name" id="editPlayerName" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
+      <small class="text-red-500"></small>
+
+      <label for="editCardPhotourl" class="block text-sm font-medium">Photo URL</label>
+      <input type="url" name="photo" id="editCardPhotourl" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+      <small class="text-red-500"></small>
+
+      <label for="editPosition" class="block text-sm font-medium">Position</label>
+      <select name="position" id="editPosition" class="w-full px-3 py-2 bg-gray-100 border rounded-md">
+        <option disabled selected hidden>Choose position</option>
+        <option value="GK">GK</option>
+        <option value="LB">LB</option>
+        <option value="CB1">CB1</option>
+        <option value="CB2">CB2</option>
+        <option value="RB">RB</option>
+        <option value="CML">CML</option>
+        <option value="CM">CM</option>
+        <option value="CMR">CMR</option>
+        <option value="LW">LW</option>
+        <option value="ST">ST</option>
+        <option value="RW">RW</option>
+      </select>
+
+      <label for="editNationality" class="block text-sm font-medium">Nationality</label>
+      <input type="text" name="nationality" id="editNationality" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+      <small class="text-red-500"></small>
+
+      <label for="editFlagName" class="block text-sm font-medium">Flag URL</label>
+      <input type="url" name="flag" id="editFlagName" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+      <small class="text-red-500"></small>
+
+      <label for="editClubName" class="block text-sm font-medium">Club</label>
+      <input type="text" name="club" id="editClubName" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+      <small class="text-red-500"></small>
+
+      <label for="editlogo" class="block text-sm font-medium">Club Logo URL</label>
+      <input type="url" name="logo" id="editlogo" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+      <small class="text-red-500"></small>
+
+      <label for="editrating" class="block text-sm font-medium">Rating</label>
+      <input type="number" name="rating" id="editrating" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+      <small class="text-red-500"></small>
+
+
+
+
+      <div id="editother-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+        <div>
+            <label for="editNormalePace" class="block text-sm font-medium">Pace</label>
+            <input type="number" name="pace" id="editNormalePace" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editNormaleShoot" class="block text-sm font-medium">Shooting</label>
+            <input type="number" name="shooting" id="editNormaleShoot" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editNormalePass" class="block text-sm font-medium">Passing</label>
+            <input type="number" name="passing" id="editNormalePass" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editNormaleDriblle" class="block text-sm font-medium">Dribbling</label>
+            <input type="number" name="dribbling" id="editNormaleDriblle" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editNormaleDefend" class="block text-sm font-medium">defending</label>
+            <input type="number" name="defending" id="editNormaleDefend" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editNormalePhy" class="block text-sm font-medium">Physical</label>
+            <input type="number" name="physical" id="editNormalePhy" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+    </div>
+
+    <div id="editgk-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+        <div>
+            <label for="editGkDiving" class="block text-sm font-medium">Diving</label>
+            <input type="number" name="diving" id="editGkDiving" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editGkHandling" class="block text-sm font-medium">Handling</label>
+            <input type="number" name="editGkHandling" id="editGkHandling" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editGkKicking" class="block text-sm font-medium">Kicking</label>
+            <input type="number" name="kicking" id="editGkKicking" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editGkReflexe" class="block text-sm font-medium">Reflexes</label>
+            <input type="number" name="reflexes" id="editGkReflexe" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editGkSpeed" class="block text-sm font-medium">speed</label>
+            <input type="number" name="speed" id="editGkSpeed" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+        <div>
+            <label for="editGkPosition" class="block text-sm font-medium">Positioning</label>
+            <input type="number" name="positioning" id="editGkPosition" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
+            <small class="text-red-500"></small>
+        </div>
+    </div>
+    
+      <div class="text-center mt-4">
+        <button type="button" class="px-4 py-2 bg-green-500 text-white rounded-md" id="editAddplayertolst">Add Player</button>
+        <button type="button" onclick="hideOverlayedit()" class="px-4 py-2 bg-gray-300 text-black rounded-md">Cancel</button>
+      </div>
+    </form>
+  </div>
+  </div>
+
+
 
 
 <!-- modal for add player with filter -->
 <div id="modalfilter" class="fixed inset-0 hidden justify-center items-center bg-white bg-opacity-45 px-4">
     
-  <div class="px-10 bg-[#1f1f1f] max-h-max max-w-max rounded-xl">
+  <div class="px-10 bg-[#407466] max-h-max max-w-max rounded-xl">
   
-      <!-- <div class="font-Raleway mt-16 ml-6 mb-7">
-          <p class="text-xl">Players List :</p>
-      </div> -->
-  <div id="filtredPlayers" class="grid grid-cols-6 px-10 bg-[#1f1f1f] max-h-max max-w-max gap-4">
+      <div class="font-Raleway mt-16 ml-6 mb-7">
+          <p class="text-4xl flex justify-center text-[#EADE6E] font-extrabold">Players</p>
+      </div>
+  <div id="filtredPlayers" class="grid grid-cols-5 px-10 bg-[#407466] max-h-max max-w-max gap-4">
       <div>
           
       </div>
   </div>
   <!-- addbtn -->
-   <div class="flex justify-center pb-6 gap-3">
-  <input type="button" value="Cancel" class="bg-[#f0f0f0] text-black hover:bg-[#b3b3b3] duration-200 px-6 py-3 rounded-full cursor-pointer " onclick="document.getElementById('modalfilter').classList.add('hidden')">
+   <div class="flex justify-center items-center  gap-3">
+  <input type="button" value="Cancel" class="bg-[#EADE6E] text-black hover:bg-[#b3b3b3] duration-200 px-6 py-3 rounded-full cursor-pointer " onclick="document.getElementById('modalfilter').classList.add('hidden')">
   </div>
   </div>
   </div>
 
 
+  <footer class="bg-[#407466] text-gray-200 py-8">
+    <div class="container mx-auto px-4">
+        <!-- Logo et description -->
+        <div class="text-center mb-6">
+            <img src="img/Capture_d_écran_2024-11-25_124931-removebg-preview.png" alt="FUT Champions Logo" class="mx-auto h-16">
+            <p class="mt-4 text-sm">
+                Restez à jour avec les dernières actualités, astuces et guides pour exceller dans FUT Champions. Dominez la compétition !
+            </p>
+        </div>
 
+        <!-- Grille principale -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <!-- Liens rapides -->
+            <div>
+                <h2 class="text-lg font-bold mb-4 text-yellow-400">Liens rapides</h2>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-yellow-300">Accueil</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Actualités</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Guide FUT</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Classements</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h2 class="text-lg font-bold mb-4 text-yellow-400">Contact</h2>
+                <ul class="space-y-2">
+                    <li>Email : <a href="mailto:support@futchampions.com" class="hover:underline">support@futchampions.com</a></li>
+                    <li>Twitter : <a href="https://twitter.com/futchampions" class="hover:underline">@futchampions</a></li>
+                    <li>Discord : <a href="https://discord.gg/futchampions" class="hover:underline">Rejoignez notre Discord</a></li>
+                </ul>
+            </div>
+
+            <!-- Suivez-nous -->
+            <div>
+                <h2 class="text-lg font-bold mb-4 text-yellow-400">Suivez-nous</h2>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="hover:text-yellow-300"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="hover:text-yellow-300"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="hover:text-yellow-300"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="hover:text-yellow-300"><i class="fab fa-youtube fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lien de copyright -->
+        <div class="mt-8 border-t border-gray-700 pt-4 text-center text-sm">
+            <p>&copy; 2024 FUT Champions. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
 
 
 
