@@ -110,7 +110,6 @@ dataplayer.onreadystatechange = function () {
     div.addEventListener('click', function () {
         let positionElement = document.querySelector(`[player-position="${player.position}"]`);
         console.log(positionElement)
-        positionElement.classList.add("bg-[url('img/badge_gold.png')]")
         if(positionFilter == "GK"){
           positionElement.innerHTML = `
             <div class="flex flex-col ">
@@ -201,9 +200,9 @@ dataplayer.onreadystatechange = function () {
         }
 
         let img = document.createElement("img")
-        img.setAttribute("class","w-5 bg-red-500 rounded-full hover:scale-110 relative bottom-[10px] left-[45px] hidden")
+        img.setAttribute("class","w-5 rounded-full hover:scale-110 relative bottom-[10px]  hidden")
         img.setAttribute("src","img/delete.png");
-        img.setAttribute("alt","deleteico")
+        img.setAttribute("alt","icondelete")
 
         
         positionElement.addEventListener("mouseover",function(){
@@ -236,8 +235,6 @@ dataplayer.onreadystatechange = function () {
 
             positionElement.appendChild(addImg);
 
-            // positionElement.classList.add("bg-blackcard")
-            positionElement.classList.remove("bg-[url('img/badge_gold.png')]")
             
             
             document.getElementById("modalfilter").classList.add("hidden");
@@ -250,9 +247,9 @@ dataplayer.onreadystatechange = function () {
 
         let editimg = document.createElement('img');
 
-        editimg.setAttribute("class","w-5 bg-green-500 rounded-full hover:scale-110 relative bottom-[10px] left-[45px] hidden");
-        editimg.setAttribute("src","img/modify.png");
-        editimg.setAttribute("alt","editico");
+        editimg.setAttribute("class","w-5  rounded-full hover:scale-110 relative bottom-[10px]  hidden");
+        editimg.setAttribute("src","img/modif.png");
+        editimg.setAttribute("alt","iconedit");
 
         positionElement.addEventListener("mouseover",function(){
           editimg.classList.remove("hidden")
@@ -345,8 +342,9 @@ dataplayer.onreadystatechange = function () {
 
           let posEle = document.querySelector(`#${player.position}`);
               
-              if (posEle) {
+              if (posEle.id !== "GK") {
                 posEle.innerHTML = `
+                <div class="cardeGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
                 <div class="flex flex-col">
                  <div class="flex">
                 <div class="flex flex-col mr-[-8px] text-[#362f16] items-center">
@@ -386,7 +384,53 @@ dataplayer.onreadystatechange = function () {
                  </div>
          </div>
     `;
-              }
+              }else{
+                posEle.innerHTML = `
+                <div class="cardeGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
+             <div class="flex flex-col ">
+                 <div class="flex">
+                 <div class="flex flex-col mr-[-8px] text-[#362f16] items-center">
+                     <span class="mb-[-5px] font-bold">${player.rating}</span>
+                     <span class="text-[10px] font-medium">${player.position}</span>
+                </div>
+                    <img class="w-20" src="${player.photo}" alt="photo">
+               </div>
+                 <h6 class="text-center text-sm">${player.name}</h6>
+             </div>
+             <div class="flex justify-center gap-1 mt-4">
+               <div class="flex flex-col">
+                 <p class="text-[9px]">DIV</p>
+                 <p class="text-[9px]">${player.diving}</p>
+               </div>
+               <div class="flex flex-col">
+                 <p class="text-[9px]">HAN</p>
+                 <p class="text-[9px]">${player.handling}</p>
+               </div>
+               <div class="flex flex-col">
+                 <p class="text-[9px]">KIC</p>
+                 <p class="text-[9px]">${player.kicking}</p>
+               </div>
+               <div class="flex flex-col">
+                 <p class="text-[9px]">REF</p>
+                 <p class="text-[9px]">${player.reflexes}</p>
+               </div>
+               <div class="flex flex-col">
+                 <p class="text-[9px]">SPE</p>
+                 <p class="text-[9px]">${player.speed}</p>
+               </div>
+               <div class="flex flex-col">
+                 <p class="text-[9px]">POS</p>
+                 <p class="text-[9px]">${player.positioning}</p>
+               </div>
+               </div> 
+               <div class="flex gap-4">
+                     <img src="${player.flag}" alt="" srcset="" class="w-4">
+                     <img src="${player.logo}" alt="" srcset="" class="w-4">
+                 </div>
+
+            </div>
+           
+                `}
 
               
               posEle.appendChild(editimg)
@@ -433,9 +477,7 @@ dataplayer.onreadystatechange = function () {
  const addplayer = document.getElementById("addplayer");
 const  setPlayerOverlay = document.getElementById("set-player-overlay");
 
-// addplayer.addEventListener('click', function(e){
-//     e.preventDefault();
-// })
+
 
 // Soumettre le formulaire
 addplayer.addEventListener("click", function(e) {
@@ -460,6 +502,95 @@ addplayer.addEventListener("click", function(e) {
   const reflexes = document.getElementById("reflexes").value;
   const speed = document.getElementById("speed").value;
   const positioning = document.getElementById("positioning").value;
+
+  // Validate using regular expressions
+  const nameRegex = /^[a-zA-ZÀ-ÿ\s-]{2,50}$/; // Name: letters, spaces, and hyphens
+  const urlRegex = /^(http|https):\/\/[^\s$.?#].[^\s]*$/; // URL for photo and logo
+  const numberRegex = /^[0-9]{1,3}$/; // Rating and other stats should be a number between 0 and 100
+  
+  if(position !== "GK"){
+    if (!nameRegex.test(name)) {
+      alert("Nom invalide !"); // Invalid name
+      return;
+    }
+    if (!urlRegex.test(photo)) {
+      alert("URL de photo invalide !");
+      return;
+    }
+    if (!urlRegex.test(logo)) {
+      alert("URL du logo invalide !");
+      return;
+    }
+    if (!numberRegex.test(rating) || parseInt(rating) < 0 || parseInt(rating) > 100) {
+      alert("Évaluation invalide !");
+      return;
+    }
+    if (!numberRegex.test(pace) || parseInt(pace) < 0 || parseInt(pace) > 100) {
+      alert("Pace invalide !");
+      return;
+    }
+    if (!numberRegex.test(shooting) || parseInt(shooting) < 0 || parseInt(shooting) > 100) {
+      alert("Shooting invalide !");
+      return;
+    }
+    if (!numberRegex.test(passing) || parseInt(passing) < 0 || parseInt(passing) > 100) {
+      alert("Passing invalide !");
+      return;
+    }
+    if (!numberRegex.test(dribbling) || parseInt(dribbling) < 0 || parseInt(dribbling) > 100) {
+      alert("Dribbling invalide !");
+      return;
+    }
+    if (!numberRegex.test(defending) || parseInt(defending) < 0 || parseInt(defending) > 100) {
+      alert("Defending invalide !");
+      return;
+    }
+    if (!numberRegex.test(physical) || parseInt(physical) < 0 || parseInt(physical) > 100) {
+      alert("Physical invalide !");
+      return;
+    }
+  }else{
+    if (!nameRegex.test(name)) {
+      alert("Nom invalide !"); // Invalid name
+      return;
+    }
+    if (!urlRegex.test(photo)) {
+      alert("URL de photo invalide !");
+      return;
+    }
+    if (!urlRegex.test(logo)) {
+      alert("URL du logo invalide !");
+      return;
+    }
+    if (!numberRegex.test(rating) || parseInt(rating) < 0 || parseInt(rating) > 100) {
+      alert("Évaluation invalide !");
+      return;
+    }
+  if (!numberRegex.test(diving) || parseInt(diving) < 0 || parseInt(diving) > 100) {
+    alert("Diving invalide !");
+    return;
+  }
+  if (!numberRegex.test(handling) || parseInt(handling) < 0 || parseInt(handling) > 100) {
+    alert("Handling invalide !");
+    return;
+  }
+  if (!numberRegex.test(kicking) || parseInt(kicking) < 0 || parseInt(kicking) > 100) {
+    alert("Kicking invalide !");
+    return;
+  }
+  if (!numberRegex.test(reflexes) || parseInt(reflexes) < 0 || parseInt(reflexes) > 100) {
+    alert("Reflexes invalide !");
+    return;
+  }
+  if (!numberRegex.test(speed) || parseInt(speed) < 0 || parseInt(speed) > 100) {
+    alert("Speed invalide !");
+    return;
+  }
+  if (!numberRegex.test(positioning) || parseInt(positioning) < 0 || parseInt(positioning) > 100) {
+    alert("Positioning invalide !");
+    return;
+  }
+  }
 
   let obj = {
     name:name,
@@ -496,7 +627,7 @@ addplayer.addEventListener("click", function(e) {
   if( position =="GK")
     {
      div.innerHTML=`
-   <div class="cardeGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')];">
+   <div class="cardeGK flex flex-col bg-cover bg-center bg-no-repeat w-[150px] h-[200px] items-center pt-4 bg-[url('img/badge_gold.png')]">
        <div class="flex flex-col ">
            <div class="flex">
            <div class="flex flex-col mr-[-8px] text-[#362f16] items-center">

@@ -8,6 +8,43 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+  <header class="px-4 flex flex-wrap items-center justify-between bg-[#407466]">
+    <!-- Logo -->
+    <img src="img/Capture_d_écran_2024-11-25_124931-removebg-preview.png" 
+         class="h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] ml-4 sm:ml-20">
+
+    <!-- Menu Toggle Button (Visible only on small screens) -->
+    <button id="menu-toggle" 
+            class="sm:hidden text-[#EADE6E] text-2xl focus:outline-none ml-auto">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav id="nav-menu" 
+         class="hidden sm:flex flex-1 sm:flex-row flex-col sm:items-center sm:justify-center w-full sm:w-auto space-y-4 sm:space-y-0 mt-4 sm:mt-0">
+        <ul class="flex sm:flex-row flex-col sm:space-x-8 space-y-2 sm:space-y-0 justify-center">
+            <li><a href="#" class="text-[#EADE6E] hover:underline">Home</a></li>
+            <li><a href="#" class="text-[#EADE6E] hover:underline">About</a></li>
+            <li><a href="#" class="text-[#EADE6E] hover:underline">Services</a></li>
+            <li><a href="#" class="text-[#EADE6E] hover:underline">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Add Player Button -->
+    <button id="add-player" 
+            class="bg-[#EADE6E] text-white border-2 rounded-lg py-2 px-4 hover:bg-[#d4c45a] mt-4 sm:mt-0 sm:ml-auto">
+        Add player
+    </button>
+</header>
+
+<script>
+  // Script for toggling the menu on small screens
+  document.getElementById('menu-toggle').addEventListener('click', function () {
+      const navMenu = document.getElementById('nav-menu');
+      navMenu.classList.toggle('hidden');
+  });
+</script>
+
   <!-- <header>
     <div class=" bg-[#407466] px-4 md:py-2 md:px-24">
       <img src="img/Capture_d_écran_2024-11-25_124931-removebg-preview.png" class="h-[100px] w-[100] ml-20">
@@ -17,7 +54,7 @@
   <button id="add-player" class="bg-[#EADE6E] text-white border-2 rounded-lg py-2 px-4 hover:bg-[EADE6E]">Add player</button>
   </div> -->
 
-  <header class=" px-4 flex items-center justify-between bg-[#407466]">
+  <!-- <header class=" px-4 flex items-center justify-between bg-[#407466]">
     <img src="img/Capture_d_écran_2024-11-25_124931-removebg-preview.png" class="h-[100px] w-[100] ml-20">
     <nav class="flex-1">
       <ul class="flex justify-center space-x-8">
@@ -28,25 +65,25 @@
       </ul>
   </nav>
     <button id="add-player" class="bg-[#EADE6E] text-white border-2 rounded-lg py-2 px-4 hover:bg-[#EADE6E]">Add player</button>
-</header>
+</header> -->
 
-  <div class="mt-4 bg-contain lg:bg-cover bg-no-repeat w-full h-[100vh] lg:w-[80vw] lg:h-[140vh] mx-auto px-12 py-6" style="background-image: url('img/terrain.png');">
+  <div class="mt-4 bg-contain lg:bg-cover bg-no-repeat w-full h-[40vh] lg:w-[80vw] lg:h-[140vh] mx-auto px-12 py-6" style="background-image: url('img/terrain.png');">
     <div class="grid grid-cols-3 gap-4">
-    <div id="LW" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="LW" >  <img src="img/261370-200.png" class=" w-14 cursor-pointer  rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-    <div id="ST" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="ST">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-    <div id="RW" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="RW">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-    <div id="CML" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CML">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-    <div id="CM" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CM">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-    <div id="CMR" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CMR">  <img src="img/261370-200.png" class="w-14 w-10 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+    <div id="LW" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="LW" >  <img src="img/261370-200.png" class=" w-7 md:w-14 cursor-pointer  rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+    <div id="ST" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="ST">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+    <div id="RW" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="RW">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+    <div id="CML" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CML">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+    <div id="CM" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CM">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+    <div id="CMR" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CMR">  <img src="img/261370-200.png" class="w-7 md:w-14 w-10 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
     </div>
     <div class="grid grid-cols-4 gap-4">
-      <div id="LB" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="LB">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-      <div id="CB1" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CB1">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-      <div id="CB2" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CB2">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
-      <div id="RB" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="RB">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+      <div id="LB" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="LB">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+      <div id="CB1" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CB1">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+      <div id="CB2" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="CB2">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+      <div id="RB" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="RB">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
     </div>
     <div class="flex justify-center items-center">
-      <div id="GK" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="GK">  <img src="img/261370-200.png" class="w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
+      <div id="GK" class="carde col-span-1 w-[20vw] h-[7vh] md:h-[12vh] lg:h-[30vh]  bg-[url('img/card.png')] bg-contain bg-center bg-no-repeat flex flex-col justify-center items-center position-button" player-position="GK">  <img src="img/261370-200.png" class="w-7 md:w-14 cursor-pointer rounded-full" onclick="document.getElementById('modalfilter').classList.add('flex');document.getElementById('modalfilter').classList.remove('hidden')" alt="add"></div>
     </div>
   </div>
 
@@ -78,7 +115,7 @@
       </div> -->
 
       <div  class="flex justify-center items-center"><h1>All players</h1></div>
-      <section id="playersList" class="grid grid-cols-5 px-16 bg-[rgba(22,26,29,0.7)] h-full min-h-[500px] mb-8">
+      <section id="playersList" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-4 sm:px-8 md:px-16 bg-[rgba(22,26,29,0.7)] h-full min-h-[500px] mb-8">
 
         
       </section>
@@ -225,19 +262,19 @@
 
 <!--edit-->
 <div id="editAddplayermodal" class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
-  <div class="relative max-w-lg w-full p-6 border-2 border-black rounded-lg bg-white overflow-y-scroll max-h-[80vh]">
-    <h1 class="text-xl font-semibold text-center mb-4">Add Player</h1>
+  <div class="relative max-w-lg w-full p-6 border-2 border-black rounded-lg bg-white bg-[#407466] overflow-y-scroll max-h-[80vh]">
+    <h1 class="text-xl font-semibold text-center text-[#EADE6E] mb-4">Add Player</h1>
     <form id="editmodalform" class="space-y-4" autocomplete="off">
       
-      <label for="editPlayerName" class="block text-sm font-medium">Name</label>
+      <label for="editPlayerName" class="block text-sm text-[#EADE6E] font-medium">Name</label>
       <input type="text" name="name" id="editPlayerName" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
       <small class="text-red-500"></small>
 
-      <label for="editCardPhotourl" class="block text-sm font-medium">Photo URL</label>
+      <label for="editCardPhotourl" class="block text-sm text-[#EADE6E] font-medium">Photo URL</label>
       <input type="url" name="photo" id="editCardPhotourl" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
       <small class="text-red-500"></small>
 
-      <label for="editPosition" class="block text-sm font-medium">Position</label>
+      <label for="editPosition" class="block text-sm text-[#EADE6E] font-medium">Position</label>
       <select name="position" id="editPosition" class="w-full px-3 py-2 bg-gray-100 border rounded-md">
         <option disabled selected hidden>Choose position</option>
         <option value="GK">GK</option>
@@ -253,23 +290,23 @@
         <option value="RW">RW</option>
       </select>
 
-      <label for="editNationality" class="block text-sm font-medium">Nationality</label>
+      <label for="editNationality" class="block text-sm text-[#EADE6E] font-medium">Nationality</label>
       <input type="text" name="nationality" id="editNationality" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
       <small class="text-red-500"></small>
 
-      <label for="editFlagName" class="block text-sm font-medium">Flag URL</label>
+      <label for="editFlagName" class="block text-sm text-[#EADE6E] font-medium">Flag URL</label>
       <input type="url" name="flag" id="editFlagName" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
       <small class="text-red-500"></small>
 
-      <label for="editClubName" class="block text-sm font-medium">Club</label>
+      <label for="editClubName" class="block text-sm text-[#EADE6E] font-medium">Club</label>
       <input type="text" name="club" id="editClubName" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
       <small class="text-red-500"></small>
 
-      <label for="editlogo" class="block text-sm font-medium">Club Logo URL</label>
+      <label for="editlogo" class="block text-sm text-[#EADE6E] font-medium">Club Logo URL</label>
       <input type="url" name="logo" id="editlogo" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
       <small class="text-red-500"></small>
 
-      <label for="editrating" class="block text-sm font-medium">Rating</label>
+      <label for="editrating" class="block text-sm text-[#EADE6E] font-medium">Rating</label>
       <input type="number" name="rating" id="editrating" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
       <small class="text-red-500"></small>
 
@@ -278,32 +315,32 @@
 
       <div id="editother-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
         <div>
-            <label for="editNormalePace" class="block text-sm font-medium">Pace</label>
+            <label for="editNormalePace" class="block text-sm text-[#EADE6E] font-medium">Pace</label>
             <input type="number" name="pace" id="editNormalePace" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editNormaleShoot" class="block text-sm font-medium">Shooting</label>
+            <label for="editNormaleShoot" class="block text-sm text-[#EADE6E] font-medium">Shooting</label>
             <input type="number" name="shooting" id="editNormaleShoot" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editNormalePass" class="block text-sm font-medium">Passing</label>
+            <label for="editNormalePass" class="block text-sm text-[#EADE6E] font-medium">Passing</label>
             <input type="number" name="passing" id="editNormalePass" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editNormaleDriblle" class="block text-sm font-medium">Dribbling</label>
+            <label for="editNormaleDriblle" class="block text-sm text-[#EADE6E] font-medium">Dribbling</label>
             <input type="number" name="dribbling" id="editNormaleDriblle" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editNormaleDefend" class="block text-sm font-medium">defending</label>
+            <label for="editNormaleDefend" class="block text-sm text-[#EADE6E] font-medium">defending</label>
             <input type="number" name="defending" id="editNormaleDefend" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editNormalePhy" class="block text-sm font-medium">Physical</label>
+            <label for="editNormalePhy" class="block text-sm text-[#EADE6E] font-medium">Physical</label>
             <input type="number" name="physical" id="editNormalePhy" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
@@ -311,32 +348,32 @@
 
     <div id="editgk-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
         <div>
-            <label for="editGkDiving" class="block text-sm font-medium">Diving</label>
+            <label for="editGkDiving" class="block text-sm text-[#EADE6E] font-medium">Diving</label>
             <input type="number" name="diving" id="editGkDiving" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required/>
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editGkHandling" class="block text-sm font-medium">Handling</label>
+            <label for="editGkHandling" class="block text-sm text-[#EADE6E] font-medium">Handling</label>
             <input type="number" name="editGkHandling" id="editGkHandling" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editGkKicking" class="block text-sm font-medium">Kicking</label>
+            <label for="editGkKicking" class="block text-sm text-[#EADE6E] font-medium">Kicking</label>
             <input type="number" name="kicking" id="editGkKicking" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editGkReflexe" class="block text-sm font-medium">Reflexes</label>
+            <label for="editGkReflexe" class="block text-sm text-[#EADE6E] font-medium">Reflexes</label>
             <input type="number" name="reflexes" id="editGkReflexe" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editGkSpeed" class="block text-sm font-medium">speed</label>
+            <label for="editGkSpeed" class="block text-sm text-[#EADE6E] font-medium">speed</label>
             <input type="number" name="speed" id="editGkSpeed" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
         <div>
-            <label for="editGkPosition" class="block text-sm font-medium">Positioning</label>
+            <label for="editGkPosition" class="block text-sm text-[#EADE6E] font-medium">Positioning</label>
             <input type="number" name="positioning" id="editGkPosition" min="1" max="99" class="w-full px-3 py-2 bg-gray-100 border rounded-md" required />
             <small class="text-red-500"></small>
         </div>
@@ -361,7 +398,7 @@
       <div class="font-Raleway mt-16 ml-6 mb-7">
           <p class="text-4xl flex justify-center text-[#EADE6E] font-extrabold">Players</p>
       </div>
-  <div id="filtredPlayers" class="grid grid-cols-5 px-10 bg-[#407466] max-h-max max-w-max gap-4">
+  <div id="filtredPlayers" class="grid grid-cols-2 sm:grid-cols-5 px-10 bg-[#407466] max-h-max max-w-max gap-4">
       <div>
           
       </div>
